@@ -1,0 +1,18 @@
+.btn-danger {
+    margin: 10px;
+}
+.btn-info {
+    margin: 10px 10px 10px 0px;
+}
+
+.buttonHolder {
+    height: 50px;
+}
+
+.diff {
+    color:red;
+}
+
+.glyphicon-ok {
+    color:#4cae4c;
+}
