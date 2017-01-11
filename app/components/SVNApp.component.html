@@ -1,0 +1,36 @@
+<div class="buttonHolder">
+  <button type="button" (click)="controleer();" class="btn btn-success">Controleer</button>
+  <button type="button" (click)="saveClick();" class="btn btn-danger" *ngIf="isModified">Save to File</button>
+</div>
+<div class="checkbox" *ngIf="isGecontroleerd">
+  <label class="btn btn-default"><input type="checkbox" [(ngModel)]="showGelijken" />Correcte bestanden zijn gefilterd. Toon alles</label>
+</div>
+
+<div *ngIf!="paden">Lijst is leeg</div>
+
+<div *ngFor="let pad of paden; let i = index">
+  <input type="checkbox" (change)="togglePad(i)"> <strong>Repository directory : </strong>><label class="padClass">{{pad.path}}</label>
+  <div (click)="deletePad(i)" class="glyphicon glyphicon-trash"></div>
+
+  <div *ngIf="pad.show">
+    <hr/>
+    <div *ngFor="let bestand of pad.files" class="form-inline">
+      <div class="form-group" *ngIf="showGelijken || bestand.heeftVerschil || bestand.heeftVerschil == null">
+        <input type="text" [(ngModel)]="bestand.name" class="form-control" (keyup)="onKey($event)">
+        <input type="text" [(ngModel)]="bestand.revision" class="form-control" (keyup)="onKey($event)">
+        <div (click)="deleteFile(i,j)" class="glyphicon glyphicon-trash"></div>
+        <span class="diff">{{bestand.svn_version}}</span>
+        <div class="glyphicon glyphicon-ok" *ngIf="bestand.svn_version==''"></div>
+      </div>
+    </div>
+    <button type="button" (click)="addPackage(i);" class="btn btn-info">Add Package</button>
+  </div>
+  <hr/>
+</div>
+
+<div class="input-group">
+  <input type="text" placeholder="Add a new repository" class="form-control" (keyup)="onKey($event)" #newPath>
+  <span class="input-group-btn">
+        <button type="button" (click)="addRepo(newPath);" class="btn btn-success">Add Repository directory</button>
+      </span>
+</div>
