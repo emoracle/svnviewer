@@ -1,0 +1,10 @@
+[
+{
+  "path" : "bla",
+  "files":[{"name": "a", "revision": "1"},{"name": "b", "revision": "2"}]
+},
+{
+  "path" : "bla2",
+  "files":[{"name": "c", "revision": "2"},{"name": "d", "revision": "5"}]
+}
+]
