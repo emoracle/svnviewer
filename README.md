@@ -1,13 +1,13 @@
 # svnviewer
 Angular 2 application to analyze the difference in revision number between the repository and a local JSON
 
-#Installation
+## Installation
 To install the dependent node-modules use: <br>
 <code>
 npm install
 </code>
 
-#Runtime
+## Runtime
 <p>
 To run the application start the webserver.js with node, or
 <code>
